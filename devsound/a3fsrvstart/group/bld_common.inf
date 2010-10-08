@@ -1,5 +1,4 @@
-
-// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -14,17 +13,11 @@
 // Description:
 //
 
-PRJ_PLATFORMS
-// specify the platforms your component needs to be built for here
-// may add platform for OMAP, Helen etc
-DEFAULT
-
-#include "../group/bld_common.inf"
-
 #ifdef SYMBIAN_MULTIMEDIA_A3FDEVSOUND
 
-PRJ_EXPORTS
-./acl.iby						/epoc32/rom/include/acl.iby
+PRJ_MMPFILES
+../mmpfiles/mmfaudioserverstart.mmp
 
-#endif
+#endif // SYMBIAN_MULTIMEDIA_A3FDEVSOUND
 
+// End of file

@@ -18,8 +18,10 @@
 PRJ_EXPORTS
 ../inc/pcmprocessingunit.h	SYMBIAN_OS_LAYER_PLATFORM_EXPORT_PATH(mdf/pcmprocessingunit.h)
 
+#ifndef WINS
 // .iby
 TSU_MDF_PCMPROCESSINGUNIT.iby	/epoc32/rom/include/tsu_mdf_pcmprocessingunit.iby
+#endif
 
 PRJ_MMPFILES
 ../MMPFiles/pcmprocessingunit.mmp

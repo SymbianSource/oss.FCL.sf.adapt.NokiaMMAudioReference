@@ -90,5 +90,6 @@ PRJ_TESTEXPORTS
 ../Data/sbc_test_27.sbc	c:/mm/mmf/ref/sbc/sbc_test_27.sbc
 ../Data/sbc_test_28.sbc	c:/mm/mmf/ref/sbc/sbc_test_28.sbc
 
-
+#ifndef WINS
 TSU_MMF_SbcCodec.iby    /epoc32/rom/include/TSU_MMF_SbcCodec.iby 
+#endif

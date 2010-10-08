@@ -1,56 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SystemDefinition schema="3.0.0">
   <package id="mmaudio.nokia.ref" name="Ref A3F DevSound Adaptation" levels="adaptation devices middleware device-fw">
+  <!--
+  In the following, each "version all" unit is the standard group, which builds all targets, while each "version wins-only"
+  is a special group that builds only for winscw. version wins-only is the default - to use version all, feature flag
+  SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET must be defined.
+  -->
   <collection id="devsound_ref" name="Sound Device" level="devices">
    <component id="devsoundpluginsupport_ref" name="DevSound Plugin Support" introduced="7.0s" purpose="optional">
-    <unit bldFile="devsound/devsoundpluginsupport/group" mrp="devsound/devsoundpluginsupport/group/multimedia_mdf_devsound_pluginsupport.mrp"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/devsoundpluginsupport/group" mrp="devsound/devsoundpluginsupport/group/multimedia_mdf_devsound_pluginsupport.mrp"/>
+    <unit version="wins-only" bldFile="devsound/devsoundpluginsupport/emgroup"/>
    </component>
+   
    <component id="refdevsound_ref" name="Reference DevSound Plugins" introduced="7.0s" purpose="optional">
-    <unit bldFile="devsound/devsoundrefplugin/group" mrp="devsound/devsoundrefplugin/group/multimedia_mdf_devsound_refplugin.mrp"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/devsoundrefplugin/group" mrp="devsound/devsoundrefplugin/group/multimedia_mdf_devsound_refplugin.mrp"/>
+    <unit version="wins-only" bldFile="devsound/devsoundrefplugin/emgroup"/>
    </component>
+   
    <component id="a3fsrvstart_ref" name="A3F Server Start" introduced="^2" purpose="optional" class="plugin">
-    <unit bldFile="devsound/a3fsrvstart/group" mrp="devsound/a3fsrvstart/group/multimedia_a3f_serverstart.mrp"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/a3fsrvstart/group" mrp="devsound/a3fsrvstart/group/multimedia_a3f_serverstart.mrp"/>
+    <unit version="wins-only" bldFile="devsound/a3fsrvstart/emgroup"/>
    </component>
+   
    <component id="swcdwraptests_ref" name="swcdwrap Unit Tests" introduced="9.2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
-    <unit bldFile="devsound/devsoundrefplugin/tsrc/swcdwrap/group"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/devsoundrefplugin/tsrc/swcdwrap/group"/>
+    <unit version="wins-only" bldFile="devsound/devsoundrefplugin/tsrc/swcdwrap/emgroup"/>
    </component>
+   
    <component id="swcodecdevicestests_ref" name="swcodecdevices Unit Tests" introduced="9.2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
-    <unit bldFile="devsound/devsoundrefplugin/tsrc/swcodecdevices/group"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/devsoundrefplugin/tsrc/swcodecdevices/group"/>
+    <unit version="wins-only" bldFile="devsound/devsoundrefplugin/tsrc/swcodecdevices/emgroup"/>
    </component>
+   
    <component id="cipluginstests_ref" name="CI Plugins Tests" introduced="^2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
-    <unit bldFile="devsound/devsoundrefplugin/tsrc/CIPlugins/group"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/devsoundrefplugin/tsrc/CIPlugins/group"/>
+    <unit version="wins-only" bldFile="devsound/devsoundrefplugin/tsrc/CIPlugins/emgroup"/>
    </component>
+   
    <component id="devsoundtestdevice_ref" name="Devsound Test Device" introduced="^2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
-    <unit bldFile="devsound/devsoundrefplugin/tsrc/DevsoundTestDevice/group"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/devsoundrefplugin/tsrc/DevsoundTestDevice/group"/>
+    <unit version="wins-only" bldFile="devsound/devsoundrefplugin/tsrc/DevsoundTestDevice/emgroup"/>
    </component>
+   
    <component id="sbccodectests_ref" name="SbcCodec Tests" introduced="^2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
-    <unit bldFile="devsound/devsoundrefplugin/tsrc/SbcCodec/group"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="devsound/devsoundrefplugin/tsrc/SbcCodec/group"/>
+    <unit version="wins-only" bldFile="devsound/devsoundrefplugin/tsrc/SbcCodec/emgroup"/>
    </component>
   </collection>
+  
   <collection id="mmhais_ref" name="Multimedia Hardware Adaptation Interfaces" level="adaptation">
-   <component id="a3facl" name="A3F Audio Component Library" introduced="^2" purpose="development">
-    <unit bldFile="mmhais/a3facl/group" mrp="mmhais/a3facl/group/multimedia_a3f_acl.mrp"/>
+   <component id="a3facl_ref" name="A3F Audio Component Library" introduced="^2" purpose="development">
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="mmhais/a3facl/group" mrp="mmhais/a3facl/group/multimedia_a3f_acl.mrp"/>
+    <unit version="wins-only" bldFile="mmhais/a3facl/emgroup" mrp="mmhais/a3facl/group/multimedia_a3f_acl.mrp"/>
    </component>
+   
    <component id="a3fdevsoundcustomisation_ref" name="A3F DevSound Customisation" introduced="^2" purpose="optional">
-    <unit bldFile="mmhais/a3fdevsoundcustomisation/group" mrp="mmhais/a3fdevsoundcustomisation/group/multimedia_a3f_devsoundadaptationinfo.mrp"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="mmhais/a3fdevsoundcustomisation/group" mrp="mmhais/a3fdevsoundcustomisation/group/multimedia_a3f_devsoundadaptationinfo.mrp"/>
+    <unit version="wins-only" bldFile="mmhais/a3fdevsoundcustomisation/emgroup" />
    </component>
+   
    <component id="refacladapt" name="Reference ACL Adaptation" introduced="^2" purpose="optional">
-    <unit bldFile="mmhais/refacladapt/group" mrp="mmhais/refacladapt/group/multimedia_a3f_refacladaptation.mrp"/>
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="mmhais/refacladapt/group" mrp="mmhais/refacladapt/group/multimedia_a3f_refacladaptation.mrp"/>
+    <unit version="wins-only" bldFile="mmhais/refacladapt/emgroup"/>
    </component>
   </collection>
+  
+
   <collection id="mmresourcemgmt_ref" name="Multimedia Resource Management" level="middleware">
-   <component id="mmresctrl" name="Multimedia Resource Controller" introduced="^2" purpose="development">
-    <unit bldFile="mmresourcemgmt/mmresctrl/group" mrp="mmresourcemgmt/mmresctrl/group/multimedia_a3f_refmmrc.mrp"/>
+   <component id="mmresctrl_ref" name="Multimedia Resource Controller" introduced="^2" purpose="development">
+    <meta rel="config">
+     <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+    </meta>
+    <unit version="all" bldFile="mmresourcemgmt/mmresctrl/group" mrp="mmresourcemgmt/mmresctrl/group/multimedia_a3f_refmmrc.mrp"/>
+    <unit version="wins-only" bldFile="mmresourcemgmt/mmresctrl/emgroup"/>
    </component>
   </collection>
-	<!-- Note names here need be renamed, eg. mmdevicefw_audio, to be unique. -->
+  
+  
     <collection id="mmdevicefw_ref" name="Multimedia Device Framework" level="device-fw">
       <component id="mdf_ref" name="Media Device Framework" introduced="9.2" purpose="mandatory">
-        <unit bldFile="mmdevicefw/mdf/group"/>
+        <meta rel="config">
+          <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+        </meta>
+        <unit version="all" bldFile="mmdevicefw/mdf/group"/>
+        <unit version="wins-only" bldFile="mmdevicefw/mdf/emgroup"/>
       </component>
+
       <component id="mdfunittest_ref" name="MDF Unit Tests" introduced="9.2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
-        <unit bldFile="mmdevicefw/mdfunittest/group"/>
+        <meta rel="config">
+          <pick version="all"><defined condition="SYMBIAN_AUDIO_REFDEVSOUND_ON_TARGET"/></pick>
+        </meta>
+        <unit version="all" bldFile="mmdevicefw/mdfunittest/group"/>
+        <unit version="wins-only" bldFile="mmdevicefw/mdfunittest/emgroup"/>
       </component>
-	</collection>
+    </collection>
  </package>
 </SystemDefinition>

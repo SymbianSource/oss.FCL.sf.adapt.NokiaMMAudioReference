@@ -19,8 +19,10 @@ PRJ_TESTEXPORTS
 // Export test file
 ../data/depeche1.wav	c:/mm/mmf/testfiles/mdf/depeche1.wav
 
+#ifndef WINS
 // .iby
 TSU_MDF_AUDIOCODECS.iby	/epoc32/rom/include/tsu_mdf_audiocodecs.iby
+#endif
 
 PRJ_TESTMMPFILES
 ../mmpfiles/tsu_mdf_audiocodecs.mmp

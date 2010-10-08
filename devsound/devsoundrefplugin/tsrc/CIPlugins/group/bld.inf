@@ -29,5 +29,7 @@ PRJ_TESTEXPORTS
 // test scripts
 ../scripts/tsu_mmf_devsound_ciu.script	c:/tsu_mmf_devsound_ciu.script
 
+#ifndef WINS
 //iby files
 tsu_mmf_devsound_ciu.iby			/epoc32/rom/include/tsu_mmf_devsound_ciu.iby
+#endif

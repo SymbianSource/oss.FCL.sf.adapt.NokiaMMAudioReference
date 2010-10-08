@@ -17,4 +17,6 @@ PRJ_TESTMMPFILES
 ../mmpfiles/TSU_MMF_DEVSOUND_TESTDEVICE.mmp
 
 PRJ_TESTEXPORTS
+#ifndef WINS
 tsu_mmf_devsound_testdevice.iby	/epoc32/rom/include/tsu_mmf_devsound_testdevice.iby
+#endif

@@ -29,5 +29,6 @@ PRJ_TESTEXPORTS
 ../Data/TSU_MMF_SWCDWRAPpcm16_8m.raw		c:/mm/mmf/testfiles/swcdwrap/tsu_mmf_swcdwrappcm16_8m.raw
 ../Data/TSU_MMF_SWCDWRAPpcm16_16s.raw		c:/mm/mmf/testfiles/swcdwrap/tsu_mmf_swcdwrappcm16_16s.raw
 
-
+#ifndef WINS
 tsu_mmf_swcdwrap.iby   /epoc32/rom/include/tsu_mmf_swcdwrap.iby
+#endif

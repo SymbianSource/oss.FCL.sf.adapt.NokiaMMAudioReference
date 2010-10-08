@@ -43,5 +43,6 @@ PRJ_TESTEXPORTS
 ../Data/PcmU8Mono8khz400hzTone.wav	c:/mm/mmf/testfiles/swcodecdevices/pcmu8mono8khz400hztone.wav
 ../Data/PcmU8Stereo8khz400hzTone.wav	c:/mm/mmf/testfiles/swcodecdevices/pcmu8stereo8khz400hztone.wav
 
-
+#ifndef WINS
 tsu_mmf_swcodecdevices.iby	/epoc32/rom/include/tsu_mmf_swcodecdevices.iby
+#endif

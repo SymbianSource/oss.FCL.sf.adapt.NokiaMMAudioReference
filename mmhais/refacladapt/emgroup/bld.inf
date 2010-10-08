@@ -15,16 +15,6 @@
 //
 
 PRJ_PLATFORMS
-// specify the platforms your component needs to be built for here
-// may add platform for OMAP, Helen etc
-DEFAULT
+WINSCW
 
 #include "../group/bld_common.inf"
-
-#ifdef SYMBIAN_MULTIMEDIA_A3FDEVSOUND
-
-PRJ_EXPORTS
-./acl.iby						/epoc32/rom/include/acl.iby
-
-#endif
-

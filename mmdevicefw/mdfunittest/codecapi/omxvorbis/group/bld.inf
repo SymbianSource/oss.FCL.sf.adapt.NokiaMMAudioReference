@@ -20,8 +20,10 @@ PRJ_TESTEXPORTS
 ../data/ogg-encode-in.wav	c:/mm/mmf/testfiles/mdf/ogg-encode-in.wav
 ../data/ogg-decode-in.ogg	c:/mm/mmf/testfiles/mdf/ogg-decode-in.ogg
 
+#ifndef WINS
 // .iby
 TSU_MDF_OMXVORBISCODECS.iby	/epoc32/rom/include/tsu_mdf_omxvorbiscodecs.iby
+#endif
 
 PRJ_TESTMMPFILES
 ../mmpfiles/tsu_mdf_omxvorbiscodecs.mmp

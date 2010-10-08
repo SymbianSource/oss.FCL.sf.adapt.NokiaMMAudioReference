@@ -18,6 +18,7 @@ PRJ_MMPFILES
 
 PRJ_EXPORTS
 
+#ifndef WINS
 // .iby
 TSU_MDF_OMXPCMCODEC.iby	/epoc32/rom/include/tsu_mdf_omxpcmcodec.iby
-
+#endif

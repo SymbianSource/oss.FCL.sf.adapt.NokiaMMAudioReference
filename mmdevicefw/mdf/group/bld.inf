@@ -1,4 +1,5 @@
-// Copyright (c) 2005-2010 Nokia Corporation and/or its subsidiary(-ies).
+
+// Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
 // All rights reserved.
 // This component and the accompanying materials are made available
 // under the terms of "Eclipse Public License v1.0"
@@ -13,17 +14,13 @@
 // Description:
 //
 
+PRJ_PLATFORMS
+// specify the platforms your component needs to be built for here
+// may add platform for OMAP, Helen etc
+DEFAULT
+
+#include "../group/bld_common.inf"
 
 PRJ_EXPORTS
-
 // Romkit include files 
 mdf_audio.iby											/epoc32/rom/include/mdf_audio.iby
-
-PRJ_MMPFILES
-#ifdef SYMBIAN_MDF_SHAREDCHUNK_SOUNDDRIVER
-../mmpfiles/audio/mdasoundadapter.mmp
-#endif
-../mmpfiles/audio/audiodevice.mmp
-../mmpfiles/audio/mdfaudiohwdeviceadapter.mmp
-../mmpfiles/audio/vorbisdecoderprocessingunit.mmp
-../mmpfiles/audio/vorbisencoderprocessingunit.mmp
