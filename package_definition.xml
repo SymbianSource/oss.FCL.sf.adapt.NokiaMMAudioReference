@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition schema="3.0.0">
+  <package id="mmaudio.nokia.ref" name="Ref A3F DevSound Adaptation" levels="adaptation devices middleware device-fw">
+  <collection id="devsound" name="Sound Device" level="devices">
+   <component id="devsoundpluginsupport" name="DevSound Plugin Support" introduced="7.0s" purpose="optional">
+    <unit bldFile="devsound/devsoundpluginsupport/group" mrp="devsound/devsoundpluginsupport/group/multimedia_mdf_devsound_pluginsupport.mrp"/>
+   </component>
+   <component id="refdevsound" name="Reference DevSound Plugins" introduced="7.0s" purpose="optional">
+    <unit bldFile="devsound/devsoundrefplugin/group" mrp="devsound/devsoundrefplugin/group/multimedia_mdf_devsound_refplugin.mrp"/>
+   </component>
+   <component id="a3fsrvstart" name="A3F Server Start" introduced="^2" purpose="optional" class="plugin">
+    <unit bldFile="devsound/a3fsrvstart/group" mrp="devsound/a3fsrvstart/group/multimedia_a3f_serverstart.mrp"/>
+   </component>
+   <component id="swcdwraptests" name="swcdwrap Unit Tests" introduced="9.2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
+    <unit bldFile="devsound/devsoundrefplugin/tsrc/swcdwrap/group"/>
+   </component>
+   <component id="swcodecdevicestests" name="swcodecdevices Unit Tests" introduced="9.2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
+    <unit bldFile="devsound/devsoundrefplugin/tsrc/swcodecdevices/group"/>
+   </component>
+   <component id="cipluginstests" name="CI Plugins Tests" introduced="^2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
+    <unit bldFile="devsound/devsoundrefplugin/tsrc/CIPlugins/group"/>
+   </component>
+   <component id="devsoundtestdevice" name="Devsound Test Device" introduced="^2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
+    <unit bldFile="devsound/devsoundrefplugin/tsrc/DevsoundTestDevice/group"/>
+   </component>
+   <component id="sbccodectests" name="SbcCodec Tests" introduced="^2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
+    <unit bldFile="devsound/devsoundrefplugin/tsrc/SbcCodec/group"/>
+   </component>
+  </collection>
+  <collection id="mmhais" name="Multimedia Hardware Adaptation Interfaces" level="adaptation">
+   <component id="a3facl" name="A3F Audio Component Library" introduced="^2" purpose="development">
+    <unit bldFile="mmhais/a3facl/group" mrp="mmhais/a3facl/group/multimedia_a3f_acl.mrp"/>
+   </component>
+   <component id="a3fdevsoundcustomisation" name="A3F DevSound Customisation" introduced="^2" purpose="optional">
+    <unit bldFile="mmhais/a3fdevsoundcustomisation/group" mrp="mmhais/a3fdevsoundcustomisation/group/multimedia_a3f_devsoundadaptationinfo.mrp"/>
+   </component>
+   <component id="refacladapt" name="Reference ACL Adaptation" introduced="^2" purpose="optional">
+    <unit bldFile="mmhais/refacladapt/group" mrp="mmhais/refacladapt/group/multimedia_a3f_refacladaptation.mrp"/>
+   </component>
+  </collection>
+  <collection id="mmresourcemgmt" name="Multimedia Resource Management" level="middleware">
+   <component id="mmresctrl" name="Multimedia Resource Controller" introduced="^2" purpose="development">
+    <unit bldFile="mmresourcemgmt/mmresctrl/group" mrp="mmresourcemgmt/mmresctrl/group/multimedia_a3f_refmmrc.mrp"/>
+   </component>
+  </collection>
+	<!-- Note names here need be renamed, eg. mmdevicefw_audio, to be unique. -->
+    <collection id="mmdevicefw" name="Multimedia Device Framework" level="device-fw">
+      <component id="mdf" name="Media Device Framework" introduced="9.2" purpose="mandatory">
+        <unit bldFile="mmdevicefw/mdf/group"/>
+      </component>
+      <component id="mdfunittest" name="MDF Unit Tests" introduced="9.2" purpose="development" filter="test,mmaudio.nokia.ref_audiotest,mmaudio_audiotest">
+        <unit bldFile="mmdevicefw/mdfunittest/group"/>
+      </component>
+	</collection>
+ </package>
+</SystemDefinition>
