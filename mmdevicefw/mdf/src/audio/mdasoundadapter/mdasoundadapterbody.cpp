@@ -182,10 +182,18 @@ TInt RMdaDevSound::CBody::Open(TInt /*aUnit*/)
 		// work out mask so that x&iRequestMinMask is equiv to x/iRequestMinSize*iRequestMinSize
 		iRequestMinMask = ~(iRequestMinSize-1); // assume iRequestMinSize is power of 2
 		iSavedTrailingData.Close();
-		iSavedTrailingData.Create(iRequestMinSize);
+		
+		err = iSavedTrailingData.Create(iRequestMinSize);
 	
-	    iState = EStopped;
-		iBytesPlayed = 0;
+		if (err != KErrNone)
+		    {
+		    Close();
+		    }
+		else
+		    {
+	        iState = EStopped;
+		    iBytesPlayed = 0;
+		    }
 	    }
 
 	return err;
